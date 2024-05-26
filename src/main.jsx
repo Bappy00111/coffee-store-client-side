@@ -11,15 +11,16 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-    loader:() => fetch('http://localhost:5000/coffee')
+    loader: () => fetch("http://localhost:5000/coffee"),
   },
   {
     path: "/addCoffe",
-    element: <AddCoffe/>,
+    element: <AddCoffe />,
   },
   {
-    path: "/upDateCoffe",
-    element: <UpDateCoffe/>,
+    path: "/upDateCoffe/:id",
+    element: <UpDateCoffe />,
+    loader: ({ params }) =>fetch(`http://localhost:5000/coffee/${params.id}`),
   },
 ]);
 
